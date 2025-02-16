@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("formulario")
+@RequestMapping("")
 public class indexaController {
 
     @Autowired
     private ContatoRepository repository;
 
-    @PostMapping
+    @PostMapping("/formulario")
     public ResponseEntity<CadastroContatos> cadastrar(@RequestBody CadastroContatos dados) {
         if (repository.existsByTelefone(dados.telefone())) {
             throw new ExceptionUnique("O telefone já esta em uso!");
@@ -32,7 +32,7 @@ public class indexaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(dados);
     }
 
-    @GetMapping
+    @GetMapping("listar-contatos")
     public List<CadastroContatos> listar() {
         return repository.findAll().stream().map(CadastroContatos::new).toList();
     }
