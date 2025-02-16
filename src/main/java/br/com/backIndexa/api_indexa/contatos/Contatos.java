@@ -27,11 +27,40 @@ public class Contatos {
     private String observacoes;
 
     public Contatos(CadastroContatos dados) {
+        this.id = dados.id();
         this.nome = dados.nome();
         this.telefone = dados.telefone();
         this.email = dados.email();
         this.aniversario = dados.aniversario();
         this.redes = dados.redes();
         this.observacoes = dados.observacoes();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAniversario() {
+        return aniversario;
+    }
+
+    public String getRedes() {
+        return redes;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
     }
 }
